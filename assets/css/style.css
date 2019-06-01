@@ -48,7 +48,7 @@ html {
     margin-bottom:50px;
 }
 
-#current_word: {
+#current_word {
     text-align: center !important;
 }
 
@@ -56,4 +56,12 @@ img {
     width: 150px;
     height: 150px;
     margin-bottom: 30px;
+}
+
+#letters_used {
+    margin-top:20px
+}
+
+#guess_left {
+    margin-bottom: 50px;
 }
