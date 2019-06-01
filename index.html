@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Word Guess Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/cf791da640.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Monoton|Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+        <div class="large_container">
+            <div class="jumbotron" id="jumbo">
+                    <h1 class="display-4" id="jumboheader">Welcome to my Word Guess Game</h1>
+            </div>
+            <div class="card" id="card1">
+                    <div class="card-body">
+                      <p></p>
+                    </div>
+            </div>
+            <div class="card-group">
+                    <div class="card" id="card2">
+                      <div class="card-body">
+                        <img src="assets/images/star.jpg" alt="Star">
+                        <p class="card-text">Many have tried, few have succeeded...</p>
+                      </div>
+                    </div>
+                    <div class="card" id="card3">
+                      <div class="card-body">
+                        <p class="card-text">If you think you can win, press any key to begin!</p>
+                        <p class="card-text">Wins: </p>
+                        <p class="card-text" id="current_word">Current word </p>
+                        <p class="card-text" id="guess_word"> </p>
+                        <p class="card-text">How many guesses left before you lose:</p>
+                        <p class="card-text" id="letters_used">Letters used</p>
+                      </div>
+                    </div>
+            </div>
+    </div>
+    
+</body>
+</html>

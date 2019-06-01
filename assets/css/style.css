@@ -1,0 +1,59 @@
+html {
+    background-image: url("../images/neon.jpg");
+}
+
+#jumboheader{
+    font-family: 'Monoton', cursive;
+    color: aqua;
+    }
+
+#jumbo{
+    background-image: url("../images/neon.jpg") !important;
+}
+
+.large_container{
+    background-image: url("../images/neon.jpg");
+    margin-bottom: 20px;
+}
+
+#card1 {
+    /* border:none; */
+    margin-left: 300px;
+    margin-right: 300px;
+    background: black;
+}
+
+#card2 {
+    margin-top: 20px;
+    margin-left: 300px;
+    height: 600px;
+    background: black;
+}
+
+#card3 {
+    margin-top: 20px;
+    margin-right: 300px;
+    height: 600px;
+    background: black;
+}
+
+.card-text{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    color: pink;
+}
+
+#guess_word{
+    margin-top:50px;
+    margin-bottom:50px;
+}
+
+#current_word: {
+    text-align: center !important;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 30px;
+}
