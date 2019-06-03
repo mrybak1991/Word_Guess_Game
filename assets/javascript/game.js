@@ -4,10 +4,10 @@
 
 var possibleWords = [
     "tiesto",
-    // "hardwell",
-    // "marlo",
-    // "afrojack",
-    // "zedd"
+    "hardwell",
+    "marlo",
+    "afrojack",
+    "zedd"
 ];
 
 const maxAttempts = 8;
@@ -67,8 +67,9 @@ function confirmGuess(letter) {
 }
 ;
 
-function checkWin() {
-    if (document.getElementById("cuurent_word") = "tiesto") {
+function checkWin1(){
+    if (guessingWord.join("") === "tiesto")
+    {
         document.getElementById("not_win").style.cssText = "display:none";
         document.getElementById("tiesto").style.cssText = "display:block";
         wins++;
@@ -76,6 +77,47 @@ function checkWin() {
 
     }
 };
+
+function checkWin2(){
+    if (guessingWord.join("") === "hardwell")
+    {   
+        document.getElementById("not_win").style.cssText = "display:none";
+        document.getElementById("hardwell").style.cssText = "display:block";
+        wins++;
+        hasFinished = true;
+    }
+};
+
+function checkWin3(){
+    if (guessingWord.join("") === "marlo")
+    {   
+        document.getElementById("not_win").style.cssText = "display:none";
+        document.getElementById("marlo").style.cssText = "display:block";
+        wins++;
+        hasFinished = true;
+    }
+};
+
+function checkWin4(){
+    if (guessingWord.join("") === "afrojack")
+    {   
+        document.getElementById("not_win").style.cssText = "display:none";
+        document.getElementById("afrojack").style.cssText = "display:block";
+        wins++;
+        hasFinished = true;
+    }
+};
+
+function checkWin5(){
+    if (guessingWord.join("") === "zedd")
+    {   
+        document.getElementById("not_win").style.cssText = "display:none";
+        document.getElementById("zedd").style.cssText = "display:block";
+        wins++;
+        hasFinished = true;
+    }
+};
+
 // function checkWin() {
 //     if (guessingWord.indexOf("_") === -1) {
 //         document.getElementById("not_win").style.cssText = "display:none";
@@ -110,7 +152,11 @@ document.onkeyup = function (event) {
         if (event.keyCode >= 65 && event.keyCode <= 90) {
             makeGuess(event.key.toLowerCase());
             updateGame();
-            checkWin();
+            checkWin1();
+            checkWin2();
+            checkWin3();
+            checkWin4();
+            checkWin5();
             checkLoss();
         }
     }
