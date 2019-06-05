@@ -71,19 +71,19 @@ function makeGuess(letter) {
 ;
 
 function confirmGuess(letter) {
-    var positions = [];
+    var location = [];
     for (var i = 0; i < possibleWords[cWord].length; i++) {
         if (possibleWords[cWord][i] === letter) {
-            positions.push(i);
+            location.push(i);
         }
     }
     // subtracting remaining guesses
-    if (positions.length<= 0) {
+    if (location.length<= 0) {
         Guesses--;
     }
     else {
-        for (var i = 0; i < positions.length; i++) {
-            guessingWord[positions[i]] = letter;
+        for (var i = 0; i < location.length; i++) {
+            guessingWord[location[i]] = letter;
         }
     }
 }
@@ -200,6 +200,7 @@ document.onkeyup = function (event) {
         gameOver = false;
     }
     else {
+        // locking keyboard to just letter keys and calling on functions to check specific wins or loss 
         if (event.keyCode >= 65 && event.keyCode <= 90) {
             makeGuess(event.key.toLowerCase());
             updateGame();
