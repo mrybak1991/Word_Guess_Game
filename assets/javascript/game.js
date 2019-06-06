@@ -18,10 +18,10 @@ var gameOver = false;
 const Attempts = 8;
 'use strict'
 
-// function to reset variables in the game and randomly generate a new word then create for loop to 
+// create intial game stage 
 // put "-" on screen
 
-function gameReset() {
+function gameStage() {
     Guesses = Attempts;
     Word = Math.floor(Math.random() * (possibleWords.length));
     gL = [];
@@ -191,7 +191,7 @@ function loss() {
 // fire this bad boy up!
 document.onkeyup = function (event) {
     if (gameOver) {
-        gameReset();
+        gameStage();
         gameOver = false;
     }
     else {
@@ -208,5 +208,5 @@ document.onkeyup = function (event) {
     }
 };
 
-gameReset();
+gameStage();
 updateGame();
