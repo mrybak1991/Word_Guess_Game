@@ -1,7 +1,5 @@
 
 
-
-
 // global variables 
 var possibleWords = [
     "tiesto",
@@ -18,19 +16,20 @@ var guessingWord = [];
 var Guesses = 0;
 var gameOver = false;
 const Attempts = 8;
-
-// function to reset variables in the game
-// using strict mode to help identify variable errors 
 'use strict'
+
+// function to reset variables in the game and randomly generate a new word then create for loop to 
+// put "-" on screen
+
 function gameReset() {
     Guesses = Attempts;
-    cWord = Math.floor(Math.random() * (possibleWords.length));
+    Word = Math.floor(Math.random() * (possibleWords.length));
     gL = [];
     guessingWord = [];
-    for (var i = 0; i < possibleWords[cWord].length; i++) {
+    for (var i = 0; i < possibleWords[Word].length; i++) {
         guessingWord.push("_");
     }
-    // hide other images 
+    // hide images that i want to reappear later in the game 
     document.getElementById("tiesto").style.cssText = "display: none";
     document.getElementById("hardwell").style.cssText = "display: none";
     document.getElementById("marlo").style.cssText = "display: none";
@@ -43,41 +42,38 @@ function gameReset() {
 }
 ;
 
-// this function updates wins, brings back the base image and updates 
+// update the game screen to show correct wins, show base picture, word being guessed, how many guesses left
+// and letters being guessed   
 function updateGame() {
     document.getElementById("wins").textContent = wins;
     document.getElementById("not_win").style.cssText = "display: block"
-    var guessingWordText = "";
+    var guessingWordvar = "";
     for (var i = 0; i < guessingWord.length; i++) {
-        guessingWordText += guessingWord[i];
+        guessingWordvar += guessingWord[i];
     }
-    document.getElementById('current_word').textContent = guessingWordText;
+    document.getElementById('current_word').textContent = guessingWordvar;
     document.getElementById("guess_left").textContent = Guesses;
     document.getElementById("letters").textContent = gL;
 }
 ;
 
-// if correct letter is picked add it to positions array 
-
-
-function makeGuess(letter) {
+// update guesses 
+function guessTry(letter) {
     if (Guesses > 0) {
         if (gL.indexOf(letter) === -1) {
             gL.push(letter);
-            confirmGuess(letter);
+            guessVal(letter);
         }
     }
 }
 ;
-
-function confirmGuess(letter) {
+function guessVal(letter) {
     var location = [];
-    for (var i = 0; i < possibleWords[cWord].length; i++) {
-        if (possibleWords[cWord][i] === letter) {
+    for (var i = 0; i < possibleWords[Word].length; i++) {
+        if (possibleWords[Word][i] === letter) {
             location.push(i);
         }
     }
-    // subtracting remaining guesses
     if (location.length<= 0) {
         Guesses--;
     }
@@ -88,9 +84,8 @@ function confirmGuess(letter) {
     }
 }
 ;
-// checking for specific case wins by guessed words 
-// had to convert an array to a string by using join ... thanks for the help Mitchell 
-function checkWin1(){
+//specific case wins by guessed words and show picture 
+function Win1(){
     if (guessingWord.join("") === "tiesto")
     { 
         document.getElementById("not_win").style.cssText = "display:none";
@@ -108,7 +103,7 @@ function checkWin1(){
     }
 };
 
-function checkWin2(){
+function Win2(){
     if (guessingWord.join("") === "hardwell")
     {   
         document.getElementById("not_win").style.cssText = "display:none";
@@ -125,7 +120,7 @@ function checkWin2(){
     }
 };
 
-function checkWin3(){
+function Win3(){
     if (guessingWord.join("") === "marlo")
     {   
         document.getElementById("not_win").style.cssText = "display:none";
@@ -142,7 +137,7 @@ function checkWin3(){
     }
 };
 
-function checkWin4(){
+function Win4(){
     if (guessingWord.join("") === "afrojack")
     {   
         document.getElementById("not_win").style.cssText = "display:none";
@@ -159,7 +154,7 @@ function checkWin4(){
     }
 };
 
-function checkWin5(){
+function Win5(){
     if (guessingWord.join("") === "zedd")
     {   
         document.getElementById("not_win").style.cssText = "display:none";
@@ -176,7 +171,7 @@ function checkWin5(){
     }
 };
 
-// if guesses are less than zero fire on the below functions
+//update if user runs out of guesses 
 function loss() {
     if (Guesses <= 0) {
         document.getElementById("not_win").style.cssText = "display:none";
@@ -193,22 +188,21 @@ function loss() {
 }
 ;
 
-
+// fire this bad boy up!
 document.onkeyup = function (event) {
     if (gameOver) {
         gameReset();
         gameOver = false;
     }
     else {
-        // locking keyboard to just letter keys and calling on functions to check specific wins or loss 
         if (event.keyCode >= 65 && event.keyCode <= 90) {
-            makeGuess(event.key.toLowerCase());
+            guessTry(event.key);
             updateGame();
-            checkWin1();
-            checkWin2();
-            checkWin3();
-            checkWin4();
-            checkWin5();
+            Win1();
+            Win2();
+            Win3();
+            Win4();
+            Win5();
             loss();
         }
     }
